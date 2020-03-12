@@ -9,6 +9,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
+	gintrace "gopkg.in/DataDog/dd-trace-go.v1/contrib/gin-gonic/gin"
+	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
 )
 
 func Migrate(db *gorm.DB) {
@@ -21,12 +23,15 @@ func Migrate(db *gorm.DB) {
 }
 
 func main() {
+	tracer.Start(tracer.WithServiceName("RealWorld"))
+	defer tracer.Stop()
 
 	db := common.Init()
 	Migrate(db)
 	defer db.Close()
 
 	r := gin.Default()
+	r.Use(gintrace.Middleware("http.server"))
 
 	v1 := r.Group("/api")
 	users.UsersRegister(v1.Group("/users"))
