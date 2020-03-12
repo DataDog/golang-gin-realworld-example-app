@@ -183,12 +183,6 @@
 			"revisionTime": "2017-07-10T15:57:01Z"
 		},
 		{
-			"checksumSHA1": "lqXx4OhLBZFV5p4+I0OvpNabF4A=",
-			"path": "gopkg.in/gin-gonic/gin.v1",
-			"revision": "d459835d2b077e44f7c9b453505ee29881d5d12d",
-			"revisionTime": "2017-07-02T09:28:26Z"
-		},
-		{
 			"checksumSHA1": "39V1idWER42Lmcmg2Uy40wMzOlo=",
 			"path": "gopkg.in/go-playground/validator.v8",
 			"revision": "5f57d2222ad794d0dffb07e664ea05e2ee07d60c",
@@ -207,5 +201,5 @@
 			"revisionTime": "2017-07-12T05:45:46Z"
 		}
 	],
-	"rootPath": "github.com/wangzitian0/golang-gin-starter-kit"
+	"rootPath": "github.com/DataDog/golang-gin-realworld-example-app"
 }
