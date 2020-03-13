@@ -1,0 +1,29 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "database.go",
+        "utils.go",
+    ],
+    importpath = "github.com/DataDog/golang-gin-realworld-example-app/common",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@com_github_dgrijalva_jwt_go//:go_default_library",
+        "@com_github_gin_gonic_gin//:go_default_library",
+        "@com_github_gin_gonic_gin//binding:go_default_library",
+        "@com_github_jinzhu_gorm//:go_default_library",
+        "@com_github_jinzhu_gorm//dialects/sqlite:go_default_library",
+        "@in_gopkg_go_playground_validator_v8//:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["unit_test.go"],
+    embed = [":go_default_library"],
+    deps = [
+        "@com_github_gin_gonic_gin//:go_default_library",
+        "@com_github_stretchr_testify//assert:go_default_library",
+    ],
+)
