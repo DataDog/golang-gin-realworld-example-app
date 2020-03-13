@@ -1,3 +1,5 @@
+workspace(name = "blah")
+
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
@@ -34,8 +36,8 @@ load("//:deps.bzl", "deps")
 deps()
 
 go_repository(
-    name = "com_github_wangzitian0_golang_gin_starter_kit",
-    importpath = "github.com/wangzitian0/golang-gin-starter-kit",
-    sum = "h1:k3IR09PHwwQdQhnk4UCgLaWpOXwO8qSnlCsc/kHgD7M=",
-    version = "v0.0.0-20171103115606-9423bbefbc22",
+    name = "ddtrace_",
+    importpath = "gopkg.in/DataDog/dd-trace-go.v1",
+    sum = "h1:gpWsqqkwUldNZXGJqT69NU9MdEDhLboK1C4nMgR0MWw=",
+    version = "v1.22.0",
 )

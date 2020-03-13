@@ -1,5 +1,7 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 load("@bazel_gazelle//:def.bzl", "gazelle")
+load(":deps.bzl", "ddtrace_repo_name")
+
 
 # gazelle:prefix github.com/DataDog/golang-gin-realworld-example-app
 gazelle(
@@ -20,6 +22,8 @@ go_library(
         "//users:go_default_library",
         "@com_github_gin_gonic_gin//:go_default_library",
         "@com_github_jinzhu_gorm//:go_default_library",
+        ddtrace_repo_name() + "//contrib/gin-gonic/gin:go_default_library",
+        ddtrace_repo_name() + "//ddtrace/tracer:go_default_library",
     ],
 )
 
