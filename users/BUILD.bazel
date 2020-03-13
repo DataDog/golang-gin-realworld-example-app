@@ -1,0 +1,35 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "doc.go",
+        "middlewares.go",
+        "models.go",
+        "routers.go",
+        "serializers.go",
+        "validators.go",
+    ],
+    importpath = "github.com/DataDog/golang-gin-realworld-example-app/users",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//common:go_default_library",
+        "@com_github_dgrijalva_jwt_go//:go_default_library",
+        "@com_github_dgrijalva_jwt_go//request:go_default_library",
+        "@com_github_gin_gonic_gin//:go_default_library",
+        "@com_github_jinzhu_gorm//:go_default_library",
+        "@org_golang_x_crypto//bcrypt:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["unit_test.go"],
+    embed = [":go_default_library"],
+    deps = [
+        "//common:go_default_library",
+        "@com_github_gin_gonic_gin//:go_default_library",
+        "@com_github_jinzhu_gorm//:go_default_library",
+        "@com_github_stretchr_testify//assert:go_default_library",
+    ],
+)
