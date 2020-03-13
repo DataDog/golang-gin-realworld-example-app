@@ -13,7 +13,7 @@ go_library(
         "hello.go",
     ],
     importpath = "github.com/DataDog/golang-gin-realworld-example-app",
-    visibility = ["//visibility:private"],
+    visibility = ["//visibility:public"],
     deps = [
         "//articles:go_default_library",
         "//common:go_default_library",
