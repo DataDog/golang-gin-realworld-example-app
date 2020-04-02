@@ -12,6 +12,7 @@ services:
       - 0.0.0.0:8080:8080
     environment:
       - DD_AGENT_HOST=agent
+      - DD_GO_HASH=${DD_GO_HASH}
     depends_on:
       - agent
 
@@ -20,7 +21,7 @@ services:
     build:
       context: .
       args:
-        - branch=datadog-trace
+        - branch=datadog-notrace
     ports:
       - 0.0.0.0:8081:8080
     environment:
