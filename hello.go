@@ -10,7 +10,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 	gintrace "github.com/DataDog/dd-trace-go/contrib/gin-gonic/gin"
-	"github.com/DataDog/dd-trace-go/ddtrace/tracer"
+	"github.com/DataDog/dd-trace-go/tracer"
 )
 
 func Migrate(db *gorm.DB) {
