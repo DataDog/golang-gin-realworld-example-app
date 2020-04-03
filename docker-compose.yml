@@ -12,6 +12,7 @@ services:
       - 0.0.0.0:8080:8080
     environment:
       - DD_AGENT_HOST=agent
+      # Commit hash can be used
       - DD_GO_HASH=${DD_GO_HASH}
     depends_on:
       - agent
