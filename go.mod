@@ -3,6 +3,7 @@ module github.com/DataDog/golang-gin-realworld-example-app
 go 1.12
 
 require (
+	github.com/DataDog/datadog-go v3.5.0+incompatible
 	github.com/Pallinder/go-randomdata v0.0.0-20170410161340-8c3362a5e678
 	github.com/davecgh/go-spew v0.0.0-20170711183451-adab96458c51
 	github.com/dgrijalva/jwt-go v0.0.0-20170608005149-a539ee1a749a
@@ -23,8 +24,9 @@ require (
 	github.com/stretchr/objx v0.0.0-20150928122152-1a9d0bb9f541
 	github.com/stretchr/testify v0.0.0-20170714215325-05e8a0eda380
 	github.com/ugorji/go v0.0.0-20170620104852-5efa3251c7f7
-	golang.org/x/net v0.0.0-20170711181219-f01ecb60fe38
-	golang.org/x/sys v0.0.0-20170710161658-abf9c25f5445
+	golang.org/x/crypto v0.0.0-20200406173513-056763e48d71
+	golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3
+	golang.org/x/sys v0.0.0-20190412213103-97732733099d
 	gopkg.in/go-playground/validator.v8 v8.18.1
 	gopkg.in/stretchr/testify.v1 v1.1.4
 	gopkg.in/yaml.v2 v2.0.0-20170712054546-1be3d31502d6
