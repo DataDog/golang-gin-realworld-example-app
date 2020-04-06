@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"log"
+	"net"
+	"os"
 	"runtime"
 	"runtime/debug"
 	"time"
@@ -28,7 +30,16 @@ func Migrate(db *gorm.DB) {
 // reportRuntimeMetrics periodically reports go runtime metrics at
 // the given interval.
 func reportRuntimeMetrics(stop chan struct{}, interval time.Duration) {
-	statsd, err := statsd.New("agent:8125", statsd.WithMaxMessagesPerPayload(40))
+	statsdHost, statsdPort := "localhost", "8125"
+	if v := os.Getenv("DD_AGENT_HOST"); v != "" {
+		statsdHost = v
+	}
+	if v := os.Getenv("DD_DOGSTATSD_PORT"); v != "" {
+		statsdPort = v
+	}
+	dogstatsdAddr := net.JoinHostPort(statsdHost, statsdPort)
+
+	statsd, err := statsd.New(dogstatsdAddr, statsd.WithMaxMessagesPerPayload(40))
 	log.Fatal(err)
 	var ms runtime.MemStats
 	gc := debug.GCStats{
