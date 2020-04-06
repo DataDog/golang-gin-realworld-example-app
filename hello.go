@@ -23,7 +23,7 @@ func Migrate(db *gorm.DB) {
 }
 
 func main() {
-	tracer.Start(tracer.WithServiceName("RealWorld"))
+	tracer.Start(tracer.WithServiceName("RealWorld"), tracer.WithRuntimeMetrics())
 	defer tracer.Stop()
 
 	db := common.Init()
