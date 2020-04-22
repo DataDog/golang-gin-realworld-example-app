@@ -17,5 +17,5 @@ RUN rm -Rf /go/src/github.com/DataDog/golang-gin-realworld-example-app/vendor
 
 EXPOSE 8080
 
-COPY ./install-tracer.sh .
-CMD [ "fresh" ]
+COPY ./startup.sh .
+CMD [ "./startup.sh" ]
