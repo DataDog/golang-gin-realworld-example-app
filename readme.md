@@ -1,3 +1,9 @@
+# DD Go RealWorld Example App (Reliability Env)
+
+This repository contains a fork of the Golang/Gin RealWorld application, with additional branches updated to report metrics and use `gopkg.in/DataDog/dd-trace-go.v1` for tracing.
+The Makefile builds and publishes docker images suitable for use in the reliability env, which are also runnable locally with docker-compose.
+
+
 # ![RealWorld Example App](logo.png)
 
 
