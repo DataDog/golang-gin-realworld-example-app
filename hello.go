@@ -40,7 +40,9 @@ func reportRuntimeMetrics(stop chan struct{}, interval time.Duration) {
 	dogstatsdAddr := net.JoinHostPort(statsdHost, statsdPort)
 
 	statsd, err := statsd.New(dogstatsdAddr, statsd.WithMaxMessagesPerPayload(40))
-	log.Fatal(err)
+	if err != nil {
+		log.Fatalf("FATAL: reportRuntimeMetrics: %s", err)
+	}
 	var ms runtime.MemStats
 	gc := debug.GCStats{
 		// When len(stats.PauseQuantiles) is 5, it will be filled with the
